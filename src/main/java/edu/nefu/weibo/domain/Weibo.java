@@ -1,10 +1,11 @@
 package edu.nefu.weibo.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name ="weibo_weibo")
-public class Weibo {
+public class Weibo implements Serializable {
 
     @Id
     @Column(name = "weibo_id")
