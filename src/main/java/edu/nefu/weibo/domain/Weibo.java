@@ -7,6 +7,7 @@ import javax.persistence.*;
 public class Weibo {
 
     @Id
+    @Column(name = "weibo_id")
     private String weiboid;
 
     @Column(nullable = false, name = "weibo_content")
