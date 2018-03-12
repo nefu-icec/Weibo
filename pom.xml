@@ -5,7 +5,7 @@
     <artifactId>weibo</artifactId>
     <packaging>war</packaging>
     <version>1.0</version>
-    <name>Domains Maven Webapp</name>
+    <name>Weibo Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <properties>
         <spring.version>4.3.6.RELEASE</spring.version>

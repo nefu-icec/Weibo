@@ -25,11 +25,11 @@ public class Weibo {
     private Long time;
 
     @ManyToOne
-    @Column(nullable = true, name = "weibo_reweiboid")
+    @JoinColumn(nullable = true, name = "weibo_reweiboid")
     private Weibo reWeibo;
 
     @ManyToOne
-    @Column(nullable = false, name = "weibo_userid")
+    @JoinColumn(nullable = false, name = "weibo_userid")
     private User user;
 
     public String getWeiboid() {
@@ -95,5 +95,5 @@ public class Weibo {
     public void setUser(User user) {
         this.user = user;
     }
-    
+
 }
