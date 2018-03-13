@@ -34,11 +34,11 @@
            <td>uid</td>
        </tr>
        <tbody id="users">
-           <tr>
-               <td>{{name}}</td>
-               <td>{{sex}}</td>
-               <td>{{birthday}}</td>
-               <td>{{uid}}</td>
+           <tr v-for="user in users">
+               <td>{{user.name}}</td>
+               <td>{{user.sex}}</td>
+               <td>{{user.birthday}}</td>
+               <td>{{user.uid}}</td>
            </tr>
        </tbody>
    </table>
