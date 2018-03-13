@@ -9,6 +9,7 @@
     <title>围脖统计管理后台</title>
     <script src='/dwr/engine.js'></script>
     <script src='/dwr/interface/UserManager.js'></script>
+    <script src='/dwr/interface/WeiboManager.js'></script>
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/vue.min.js"></script>
     <script src="/static/js/tools.js"></script>
@@ -88,6 +89,31 @@
                 <td>{{user.sex == null ? "未知" : (user.sex ? "男" : "女")}}</td>
                 <td>{{user.birthday.format(YEAR_MONTH_DATE_FORMAT)}}</td>
                 <td>{{user.uid}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">所有微博</h3>
+        </div>
+        <table class="table">
+            <tr>
+                <td>微博id</td>
+                <td>微博content</td>
+                <td>微博点赞数</td>
+                <td>评论</td>
+                <td>设备</td>
+                <td>时间</td>
+            </tr>
+            <tbody id="weibos">
+            <tr v-for="weibo in weibos">
+                <td>{{weibo.weiboid}}</td>
+                <td>{{weibo.content}}</td>
+                <td>{{weibo.attu}}</td>
+                <td>{{weibo.comment}}</td>
+                <td>{{weibo.device}}</td>
+                <td>{{weibo.time.format(DATE_HOUR_MINUTE_SECOND_FORMAT)}}</td>
             </tr>
             </tbody>
         </table>
