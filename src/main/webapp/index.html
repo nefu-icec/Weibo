@@ -6,8 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta content="" name="description" />
     <meta content="webthemez" name="author" />
-    <script type='text/javascript' src='/dwr/engine.js'></script>
-    <script type='text/javascript' src='/dwr/interface/UserManager.js'></script>
+    <script src='/dwr/engine.js'></script>
+    <script src='/dwr/interface/UserManager.js'></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/vue.min.js"></script>
+    <script src="/static/js/index.js"></script>
     <style type="text/css">
         table{
             border: 3px solid blueviolet;
@@ -30,31 +33,16 @@
            <td>出生时间</td>
            <td>uid</td>
        </tr>
-       <tbody>
+       <tbody id="users">
            <tr>
-           <td id="name"></td>
-           <td id="sex"></td>
-           <td id="birthday"></td>
-           <td id="uid"></td>
+               <td>{{name}}</td>
+               <td>{{sex}}</td>
+               <td>{{birthday}}</td>
+               <td>{{uid}}</td>
            </tr>
        </tbody>
    </table>
-   <script type="text/javascript">
-       UserManager.getAll(function (users) {
-           document.getElementById("name").innerHTML = users[0].name;
-           if(users[0].sex === true){
-               document.getElementById("sex").innerHTML = "男";
-           }
-           else {
-               document.getElementById("sex").innerHTML = "女";
-           }
-           document.getElementById("birthday").innerHTML = users[0].birthday;
-           document.getElementById("uid").innerHTML = users[0].uid;
-            console.log(users);
-       });
 
-
-   </script>
 </body>
 
 </html>
