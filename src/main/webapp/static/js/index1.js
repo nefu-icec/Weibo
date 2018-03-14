@@ -7,5 +7,12 @@ $(document).ready(function () {
                 sum: users.length
             }
         });
+        new Vue({
+            el: "#weibos",
+            data: {
+                weibos: users
+            }
+        });
     });
+
 });

@@ -24,6 +24,8 @@
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/vue.min.js"></script>
     <script src="/static/js/tools.js"></script>
+    <link href="/static/css/index.css" rel="stylesheet" type="text/css">
+
 </head>
 
 <body>
@@ -324,7 +326,6 @@
 
         </nav>
         <!-- /. NAV SIDE  -->
-      
 		<div id="page-wrapper">
 		  <div class="header">
                         <h1 class="page-header">
@@ -332,6 +333,15 @@
                         </h1>
 		</div>
             <div id="page-inner">
+            <div class="apple">
+                <ul id="weibos">
+                    <li v-for="weibo in weibos"><a  href="#" target="_blank">
+                        <p class="name">微博ID：{{weibo.weiboid}}</p>
+                        <p class="say">{{weibo.content}}</p>
+                        <p class="infor">发表时间：{{weibo.time.format(DATE_HOUR_MINUTE_SECOND_FORMAT)}}</p></a>
+                    </li>
+                </ul>
+            </div>
 
                 <!-- /. ROW  -->
 	
@@ -661,6 +671,16 @@
     </div>
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
+    <script type="text/javascript">
+        function autoScroll(obj){
+            $(obj).find("ul").animate({
+                marginTop : "-175px"
+            },500,function(){
+                $(this).css({marginTop : "0px"}).find("li:first").appendTo(this);
+            })
+        }
+        setInterval('autoScroll(".apple")',3000);
+    </script>
     <script src="static/js/index1.js"></script>
     <!-- jQuery Js -->
     <script src="static/js/jquery-1.10.2.js"></script>
