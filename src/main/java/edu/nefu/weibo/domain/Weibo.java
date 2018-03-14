@@ -11,7 +11,7 @@ public class Weibo implements Serializable {
     @Column(name = "weibo_id")
     private String weiboid;
 
-    @Column(nullable = false, name = "weibo_content")
+    @Column(nullable = false, name = "weibo_content", columnDefinition = "LONGTEXT")
     private String content;
 
     @Column(nullable = false, name = "weibo_attu")
