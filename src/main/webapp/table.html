@@ -24,6 +24,7 @@
     <script src="/static/js/jquery.min.js"></script>
     <script src="/static/js/vue.min.js"></script>
     <script src="/static/js/tools.js"></script>
+    <link href="/static/css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
     <div id="wrapper">
@@ -325,15 +326,19 @@
                         <h1 class="page-header">
                             微博详情 <small>Responsive tables</small>
                         </h1>
-						<ol class="breadcrumb">
-					  <li><a href="#">Home</a></li>
-					  <li><a href="#">Tables</a></li>
-					  <li class="active">Data</li>
-					</ol> 
-									
 		</div>
+            <div id="page-inner">
+                <div class="apple">
+                    <ul id="weibos">
+                        <li v-for="weibo in weibos"><a  href="#" target="_blank">
+                            <p class="name">微博ID：{{weibo.weiboid}}</p>
+                            <p class="say">{{weibo.content}}</p>
+                            <p class="infor">发表时间：{{weibo.time.format(DATE_HOUR_MINUTE_SECOND_FORMAT)}}</p></a>
+                        </li>
+                    </ul>
+                </div>
 		
-            <div id="page-inner"> 
+
                
             <div class="row">
                 <div class="col-md-12">
@@ -1051,6 +1056,16 @@
          <!-- /. PAGE WRAPPER  -->
      <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
+    <script type="text/javascript">
+        function autoScroll(obj){
+            $(obj).find("ul").animate({
+                marginTop : "-175px"
+            },500,function(){
+                $(this).css({marginTop : "0px"}).find("li:first").appendTo(this);
+            })
+        }
+        setInterval('autoScroll(".apple")',3000);
+    </script>
     <script src="static/js/weibo1.js"></script>
     <!-- jQuery Js -->
     <script src="static/js/jquery-1.10.2.js"></script>
