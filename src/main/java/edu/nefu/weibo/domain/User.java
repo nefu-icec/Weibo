@@ -20,8 +20,14 @@ public class User implements Serializable {
     @Column(name = "user_sex")
     private Boolean sex;
 
-    @Column(name = "user_birthday")
-    private Long birthday;
+    @Column(name = "user_signature")
+    private String signature;
+
+    @Column(name = "user_fans")
+    private Integer fans;
+
+    @Column(name = "user_place")
+    private String place;
 
     public String getUid() {
         return uid;
@@ -47,12 +53,27 @@ public class User implements Serializable {
         this.sex = sex;
     }
 
-    public Long getBirthday() {
-        return birthday;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setBirthday(Long birthday) {
-        this.birthday = birthday;
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 
+    public Integer getFans() {
+        return fans;
+    }
+
+    public void setFans(Integer fans) {
+        this.fans = fans;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
+    }
 }

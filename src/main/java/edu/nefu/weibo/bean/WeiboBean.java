@@ -7,12 +7,14 @@ import java.util.Date;
 
 @DataTransferObject
 public class WeiboBean {
+
     private String weiboid;
     private String content;
     private int attu;
     private int comment;
     private String device;
     private Date time;
+    private String userName;
 
     public String getWeiboid() {
         return weiboid;
@@ -62,6 +64,14 @@ public class WeiboBean {
         this.time = time;
     }
 
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     public WeiboBean(Weibo weibo) {
         this.weiboid = weibo.getWeiboid();
         this.attu = weibo.getAttu();
@@ -69,7 +79,7 @@ public class WeiboBean {
         this.content = weibo.getContent();
         this.device = weibo.getDevice();
         this.time = new Date(weibo.getTime());
-
+        this.userName = weibo.getUser().getName();
     }
 
 
