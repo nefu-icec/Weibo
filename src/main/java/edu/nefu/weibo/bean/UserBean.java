@@ -11,7 +11,9 @@ public class UserBean {
     private String uid;
     private String name;
     private Boolean sex;
-    private Date birthday;
+    private String signature;
+    private int fans;
+    private String place;
 
     public String getUid() {
         return uid;
@@ -37,19 +39,37 @@ public class UserBean {
         this.sex = sex;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public String getSignature() {
+        return signature;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public int getFans() {
+        return fans;
+    }
+
+    public void setFans(int fans) {
+        this.fans = fans;
+    }
+
+    public String getPlace() {
+        return place;
+    }
+
+    public void setPlace(String place) {
+        this.place = place;
     }
 
     public UserBean(User user) {
         this.uid = user.getUid();
         this.name = user.getName();
         this.sex = user.getSex();
-        this.birthday = new Date(user.getBirthday());
+        this.fans = user.getFans();
+        this.signature = user.getSignature();
+        this.place = user.getPlace();
     }
 
 }
