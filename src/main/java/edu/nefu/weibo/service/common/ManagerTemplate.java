@@ -1,5 +1,6 @@
 package edu.nefu.weibo.service.common;
 
+import edu.nefu.weibo.dao.AdminDao;
 import edu.nefu.weibo.dao.UserDao;
 import edu.nefu.weibo.dao.WeiboDao;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,5 +12,8 @@ public class ManagerTemplate {
 
     @Autowired
     protected WeiboDao weiboDao;
+
+    @Autowired
+    protected AdminDao adminDao;
 
 }

@@ -23,10 +23,6 @@ public class UserBean {
         this.uid = uid;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
