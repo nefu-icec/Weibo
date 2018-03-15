@@ -8,9 +8,9 @@ $(document).ready(function () {
             }
         });
         new Vue({
-            el: "#weibos",
+            el: "#shows",
             data: {
-                weibos: users
+                shows: users
             }
         });
     });
