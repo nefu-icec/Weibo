@@ -1,17 +1,13 @@
 $(document).ready(function () {
-    // noinspection JSAnnotator
-    $("#btn").click({
-        var name = $("#name").val();
-         var key = $("#key").val();
-        AdminManager.login(name, key, function (data) {
-            if (data) {
-                location.href = "main.html";
+    $("#submit").click(function () {
+        var username = $("#username").val();
+        var password = $("#password").val();
+        AdminManager.login(username, password, function (success) {
+            if (!success) {
+                alert("failed");
+                return;
             }
-            else {
-                alert("密码错误！");
-            }
+            location.href = "main.html";
         });
     });
 });
-
-
