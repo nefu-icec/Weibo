@@ -1,18 +1,17 @@
 $(document).ready(function () {
-    WeiboManager.getAll(function (users) {
-        console.log(users);
+    WeiboManager.search("2010-10-10", "2010-10-11", 0, 0,function (data) {
+        console.log(data.length);
         new Vue({
             el: "#sum",
             data: {
-                sum: users.length
+                sum: data.length
             }
         });
         new Vue({
             el: "#shows",
             data: {
-                shows: users
+                shows: data
             }
         });
     });
-
 });
