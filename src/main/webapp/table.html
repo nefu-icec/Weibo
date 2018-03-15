@@ -6,18 +6,23 @@
     <meta content="" name="description"/>
     <meta content="webthemez" name="author"/>
     <title>Bootstrap Admin html Template</title>
+    <script src='/dwr/engine.js'></script>
+    <script src='/dwr/interface/UserManager.js'></script>
+    <script src='/dwr/interface/WeiboManager.js'></script>
+    <script src="/static/js/jquery.min.js"></script>
+    <script src="/static/js/mengular.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.metisMenu.js"></script>
+    <script src="/static/js/tools.js"></script>
+    <script src="/static/js/index1.js"></script>
+    <script src="/static/js/weibo1.js"></script>
+    <link href="/static/css/index.css" rel="stylesheet">
+    <link href="/static/css/mengular.css" rel="stylesheet">
     <link href="static/css/bootstrap.css" rel="stylesheet"/>
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="static/css/custom-styles.css" rel="stylesheet"/>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
     <link href="static/js/dataTables/dataTables.bootstrap.css" rel="stylesheet"/>
-    <script src='/dwr/engine.js'></script>
-    <script src='/dwr/interface/UserManager.js'></script>
-    <script src='/dwr/interface/WeiboManager.js'></script>
-    <script src="/static/js/jquery.min.js"></script>
-    <script src="/static/js/vue.min.js"></script>
-    <script src="/static/js/tools.js"></script>
-    <link href="/static/css/index.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div id="wrapper">
@@ -326,17 +331,6 @@
             </h1>
         </div>
         <div id="page-inner">
-            <div class="apple">
-                <ul id="shows">
-                    <li v-for="show in shows"><a  href="#" target="_blank">
-                        <p class="name">微博ID：{{show.weiboid}}</p>
-                        <p class="say">{{show.content}}</p>
-                        <p class="infor">发表时间：{{show.time.format(DATE_HOUR_MINUTE_SECOND_FORMAT)}}</p></a>
-                    </li>
-                </ul>
-            </div>
-
-
             <div class="row">
                 <div class="col-md-12">
                     <!-- Advanced Tables -->
@@ -359,348 +353,39 @@
                                     </tr>
                                     </thead>
                                     <tbody id="weibos">
-                                    <tr v-for="weibo in weibos" class="even gradeC">
-                                        <td>{{weibo.weiboid}}</td>
-                                        <td>{{weibo.time.format(DATE_HOUR_MINUTE_SECOND_FORMAT)}}</td>
-                                        <td>{{weibo.device}}</td>
-                                        <td>{{weibo.content}}</td>
-                                        <td class="center">{{weibo.comment}}</td>
-                                        <td class="center">{{weibo.attu}}</td>
-                                        <td>{{weibo.userName}}</td>
+                                    <tr class="even gradeC mengular-template weibo-template">
+                                        <td>${weiboid}$</td>
+                                        <td>${time}$</td>
+                                        <td>${device}$</td>
+                                        <td>${content}$</td>
+                                        <td>${comment}$</td>
+                                        <td>${attu}$</td>
+                                        <td>${userName}$</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-xs-12 col-sm-10">
+                                        <nav id="page-nav">
+                                            <ul class="pagination" style="margin:0"></ul>
+                                        </nav>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-2">
+                                        <p id="page-info" class="pull-right">每页<span id="page-size"></span>条，共<span id="page-count"></span>条</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                        </div>
-                    </div>
-                    <!--End Advanced Tables -->
-                </div>
-            </div>
-            <!-- /. ROW  -->
-            <div class="row">
-                <div class="col-md-6">
-                    <!--   Kitchen Sink -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Kitchen Sink
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End  Kitchen Sink -->
-                </div>
-                <div class="col-md-6">
-                    <!--   Basic Table  -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Basic Table
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End  Basic Table  -->
-                </div>
-            </div>
-            <!-- /. ROW  -->
-            <div class="row">
-                <div class="col-md-6">
-                    <!--    Striped Rows Table  -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Striped Rows Table
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  End  Striped Rows Table  -->
-                </div>
-                <div class="col-md-6">
-                    <!--    Bordered Table  -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Bordered Table
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive table-bordered">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  End  Bordered Table  -->
-                </div>
-            </div>
-            <!-- /. ROW  -->
-            <div class="row">
-                <div class="col-md-6">
-                    <!--    Hover Rows  -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Hover Rows
-                        </div>
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-hover">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End  Hover Rows  -->
-                </div>
-                <div class="col-md-6">
-                    <!--    Context Classes  -->
-                    <div class="panel panel-default">
-
-                        <div class="panel-heading">
-                            Context Classes
-                        </div>
-
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>First Name</th>
-                                        <th>Last Name</th>
-                                        <th>Username</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr class="success">
-                                        <td>1</td>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr class="info">
-                                        <td>2</td>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr class="warning">
-                                        <td>3</td>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                    <tr class="danger">
-                                        <td>4</td>
-                                        <td>John</td>
-                                        <td>Smith</td>
-                                        <td>@jsmith</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                    <!--  end  Context Classes  -->
-                </div>
-            </div>
-            <!-- /. ROW  -->
         </div>
-        <footer><p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank"
-                                                                             href="http://www.cssmoban.com/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-        </p></footer>
     </div>
     <!-- /. PAGE INNER  -->
 </div>
-<!-- /. PAGE WRAPPER  -->
-<!-- /. WRAPPER  -->
-<!-- JS Scripts-->
-<script type="text/javascript">
-    function autoScroll(obj) {
-        $(obj).find("ul").animate({
-            marginTop: "-175px"
-        }, 500, function () {
-            $(this).css({marginTop: "0px"}).find("li:first").appendTo(this);
-        })
-    }
-
-    setInterval('autoScroll(".apple")', 3000);
-</script>
-<script src="static/js/index1.js"></script>
-<script src="static/js/weibo1.js"></script>
-<!-- jQuery Js -->
-<script src="static/js/jquery-1.10.2.js"></script>
-<!-- Bootstrap Js -->
-<script src="static/js/bootstrap.min.js"></script>
-<!-- Metis Menu Js -->
-<script src="static/js/jquery.metisMenu.js"></script>
-<!-- DATA TABLE SCRIPTS -->
-<script src="static/js/dataTables/jquery.dataTables.js"></script>
-<script src="static/js/dataTables/dataTables.bootstrap.js"></script>
-<script>
-    $(document).ready(function () {
-        $('#dataTables-example').dataTable(
-            {
-                "lengthMenu": [5, 25, 50, 55],
-                "bPaginate": true, //翻页功能
-                "bLengthChange": true, //改变每页显示数据数量
-                "bFilter": true, //过滤功能
-                "bInfo": false//页脚信息
-            }
-        )
-    });
-</script>
-<!-- Custom Js -->
-<script src="static/js/custom-scripts.js"></script>
 
 
 </body>
