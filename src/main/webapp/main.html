@@ -336,7 +336,7 @@
                 <ul id="shows">
                     <li v-for="show in shows"><a  href="#" target="_blank">
                         <p class="name">微博ID：{{show.weiboid}}</p>
-                        <p class="say">{{show.content}}</p>
+                        <p class="say" id="content">{{show.content}}</p>
                         <p class="infor">发表时间：{{show.time.format(DATE_HOUR_MINUTE_SECOND_FORMAT)}}</p></a>
                     </li>
                 </ul>
@@ -673,12 +673,12 @@
     <script type="text/javascript">
         function autoScroll(obj){
             $(obj).find("ul").animate({
-                marginTop : "-175px"
-            },500,function(){
+                marginTop : "-180px"
+            },1500,function(){
                 $(this).css({marginTop : "0px"}).find("li:first").appendTo(this);
             })
         }
-        setInterval('autoScroll(".apple")',3000);
+        setInterval('autoScroll(".apple")',0);
     </script>
     <script src="static/js/index1.js"></script>
     <!-- jQuery Js -->
