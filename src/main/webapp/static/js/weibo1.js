@@ -1,12 +1,15 @@
 var pageSize = 10;
 
 $(document).ready(function () {
+
     $("#search").click(function () {
+        $("#weibos").mengularClear();
         var start = $("#start").val();
         var end = $("#end").val();
-        searchWeibo(start, end, 1, 10);
+        searchWeibo(start, end, 1);
     });
 });
+
 function searchWeibo(start, end, page) {
     WeiboManager.getSearchCount(start, end, function (count) {
         $("#page-size").text(pageSize);
@@ -23,6 +26,7 @@ function searchWeibo(start, end, page) {
 
         $("#page-nav ul li").each(function (index) {
             $(this).click(function () {
+                $("#weibos").mengularClear();
                 searchWeibo(start, end, index + 1);
                 $("html, body").animate({
                     scrollTop: 0
