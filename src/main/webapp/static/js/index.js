@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     UserManager.getAll(function (users) {
         new Vue({

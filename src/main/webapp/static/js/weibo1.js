@@ -2,6 +2,10 @@ var pageSize = 10;
 
 $(document).ready(function () {
 
+    checkAdminSession(function () {
+
+    });
+
     $("#search").click(function () {
         $("#weibos").mengularClear();
         var start = $("#start").val();

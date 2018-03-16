@@ -1,16 +1,16 @@
 function checkAdminSession(done) {
-    AdminManager.checkSession(function (username) {
-        if (username == null) {
+    AdminManager.checkSession(function (success) {
+        if (!success) {
             sessionError();
             return;
         }
-        done(username);
+        done(true);
     });
 }
 
 function sessionError() {
     var redirect = encodeURIComponent(location.href);
-    location.href = "session.html?redirect=" + redirect;
+    location.href = "index.html?redirect=" + redirect;
 }
 
 function linkError() {

@@ -19,6 +19,12 @@ public interface AdminManager {
     /**
      *
      * @param session
+     */
+    void logout(HttpSession session);
+
+    /**
+     *
+     * @param session
      * @return
      */
     boolean checkSession(HttpSession session);

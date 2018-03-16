@@ -35,6 +35,11 @@ public class AdminManagerImpl extends ManagerTemplate implements AdminManager {
     }
 
     @RemoteMethod
+    public void logout(HttpSession session) {
+        session.setAttribute(AdminFlag, false);
+    }
+
+    @RemoteMethod
     public boolean checkSession(HttpSession session) {
         return isAdminLogin(session);
     }

@@ -1,3 +1,5 @@
+var redirect = decodeURIComponent(request("redirect"));
+
 $(document).ready(function () {
     $("#submit").click(function () {
         var username = $("#username").val();
@@ -7,7 +9,7 @@ $(document).ready(function () {
                 alert("failed");
                 return;
             }
-            location.href = "main.html";
+            location.href = (redirect == null || redirect == "") ? "main.html" : redirect;
         });
     });
 });
