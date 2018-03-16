@@ -1,6 +1,7 @@
 package edu.nefu.weibo.service.impl;
 
 import edu.nefu.common.util.DateTool;
+import edu.nefu.weibo.bean.Result;
 import edu.nefu.weibo.bean.WeiboBean;
 import edu.nefu.weibo.domain.Weibo;
 import edu.nefu.weibo.service.WeiboManager;
@@ -9,6 +10,7 @@ import org.directwebremoting.annotations.RemoteMethod;
 import org.directwebremoting.annotations.RemoteProxy;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,16 +19,10 @@ import java.util.List;
 public class WeiboManagerImpl extends ManagerTemplate implements WeiboManager {
 
     @RemoteMethod
-    public List<WeiboBean> getAll() {
-        List<WeiboBean> weiboBeans = new ArrayList<WeiboBean>();
-        for (Weibo weibo : weiboDao.findAll()) {
-            weiboBeans.add(new WeiboBean(weibo));
+    public Result getSearchCount(String start, String end, HttpSession session) {
+        if (!isAdminLogin(session)) {
+            return Result.sessionError();
         }
-        return weiboBeans;
-    }
-
-    @RemoteMethod
-    public long getSearchCount(String start, String end) {
         Long startStamp = null, endStamp = null;
         if (start != null && !start.equals("")) {
             startStamp = DateTool.transferDate(start + " 00:00:00", DateTool.DATE_HOUR_MINUTE_SECOND_FORMAT).getTime();
@@ -34,11 +30,14 @@ public class WeiboManagerImpl extends ManagerTemplate implements WeiboManager {
         if (end != null && !end.equals("")) {
             endStamp = DateTool.transferDate(end + " 23:59:59", DateTool.DATE_HOUR_MINUTE_SECOND_FORMAT).getTime();
         }
-        return weiboDao.getCount(startStamp, endStamp);
+        return Result.withData(weiboDao.getCount(startStamp, endStamp));
     }
 
     @RemoteMethod
-    public List<WeiboBean> search(String start, String end, int page, int pageSize) {
+    public Result search(String start, String end, int page, int pageSize, HttpSession session) {
+        if (!isAdminLogin(session)) {
+            return Result.sessionError();
+        }
         Long startStamp = null, endStamp = null;
         if (start != null && !start.equals("")) {
             startStamp = DateTool.transferDate(start + " 00:00:00", DateTool.DATE_HOUR_MINUTE_SECOND_FORMAT).getTime();
@@ -51,7 +50,7 @@ public class WeiboManagerImpl extends ManagerTemplate implements WeiboManager {
         for (Weibo weibo : weiboDao.findByTime(startStamp, endStamp, offset, pageSize)) {
             weiboBeans.add(new WeiboBean(weibo));
         }
-        return weiboBeans;
+        return Result.withData(weiboBeans);
     }
 
 }

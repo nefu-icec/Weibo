@@ -15,7 +15,12 @@ $(document).ready(function () {
 });
 
 function searchWeibo(start, end, page) {
-    WeiboManager.getSearchCount(start, end, function (count) {
+    WeiboManager.getSearchCount(start, end, function (result) {
+        if (!result.session) {
+            sessionError();
+            return;
+        }
+        var count = result.data
         $("#page-size").text(pageSize);
 
         $("#page-count").text(count);
@@ -39,9 +44,13 @@ function searchWeibo(start, end, page) {
         });
     });
 
-    WeiboManager.search(start, end, page, pageSize, function (weibos) {
-        for (var i in weibos) {
-            var weibo = weibos[i];
+    WeiboManager.search(start, end, page, pageSize, function (result) {
+        if (!result.session) {
+            sessionError();
+            return;
+        }
+        for (var i in result.data) {
+            var weibo = result.data[i];
             $("#weibos").mengular(".weibo-template", {
                 weiboid: weibo.weiboid,
                 time: weibo.time.format(DATE_HOUR_MINUTE_SECOND_FORMAT),

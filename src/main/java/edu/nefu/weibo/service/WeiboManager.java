@@ -1,21 +1,22 @@
 package edu.nefu.weibo.service;
 
+import edu.nefu.weibo.bean.Result;
 import edu.nefu.weibo.bean.WeiboBean;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public interface WeiboManager {
-
-    List<WeiboBean> getAll();
 
     /**
      * Get search count.
      *
      * @param start
      * @param end
+     * @param session
      * @return
      */
-    long getSearchCount(String start, String end);
+    Result getSearchCount(String start, String end, HttpSession session);
 
     /**
      * Search weibo by time.
@@ -24,8 +25,9 @@ public interface WeiboManager {
      * @param end
      * @param page
      * @param pageSize
+     * @param session
      * @return
      */
-    List<WeiboBean> search(String start, String end, int page, int pageSize);
+    Result search(String start, String end, int page, int pageSize, HttpSession session);
 
 }
