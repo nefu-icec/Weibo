@@ -1,11 +1,12 @@
 var pageSize = 10;
 
 $(document).ready(function () {
-
-    searchWeibo("2010-10-10", "2010-10-11", 1, 10);
+    $("#search").click(function () {
+        var start = $("#start").val();
+        var end = $("#end").val();
+        searchWeibo(start, end, 1, 10);
+    });
 });
-
-
 function searchWeibo(start, end, page) {
     WeiboManager.getSearchCount(start, end, function (count) {
         $("#page-size").text(pageSize);
