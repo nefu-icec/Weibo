@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function () {
   var ctx, data, myLineChart, options;
   Chart.defaults.global.responsive = true;
   ctx = $('#line-chart').get(0).getContext('2d');
@@ -20,7 +20,7 @@ $(function() {
     legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].strokeColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
   };
   data = {
-    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+    labels: [],
     datasets: [
       {
         label: "My First dataset",
@@ -30,20 +30,32 @@ $(function() {
         pointStrokeColor: "#fff",
         pointHighlightFill: "#fff",
         pointHighlightStroke: "#1ABC9C",
-        data: [65, 59, 80, 81, 56, 55, 40]
-      }, {
-        label: "My Second dataset",
-        fillColor: "rgba(34, 167, 240,0.2)",
-        strokeColor: "#22A7F0",
-        pointColor: "#22A7F0",
-        pointStrokeColor: "#fff",
-        pointHighlightFill: "#fff",
-        pointHighlightStroke: "#22A7F0",
-        data: [28, 48, 40, 19, 86, 27, 90]
+        data: []
       }
     ]
   };
-  myLineChart = new Chart(ctx).Line(data, options);
+//动态数据导入
+    var year = 2010;
+    var month = 10;
+    var day = 12;
+    var dayArray = [day - 6, day - 5, day - 4, day - 3, day - 2, day - 1, day];
+    console.log(dayArray);
+    var timeArray = [year +'-'+month+'-'+dayArray[0], year +'-'+month+'-'+dayArray[1],year +'-'+month+'-'+dayArray[2], year +'-'+month+'-'+dayArray[3], year +'-'+month+'-'+dayArray[4], year +'-'+month+'-'+dayArray[5], year +'-'+month+'-'+dayArray[6]];
+    console.log(timeArray);
+    data.labels = timeArray;
+    var sumArray = [' ', ' ', ' ', ' ', ' ', ' ', ' '];
+    for(var i = 0;i < 7;i++)
+    {
+        WeiboManager.getSearchCount(timeArray[i],timeArray[i],function (result) {
+          sumArray[i] = result.data;
+          data.datasets[0].data = sumArray;
+            console.log( data.datasets[0].data);
+            console.log( data.labels);
+            myLineChart = new Chart(ctx).Line(data, options);
+        });
+
+    }
+
 });
 
 $(function() {
