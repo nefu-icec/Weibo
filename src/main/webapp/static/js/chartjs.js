@@ -43,19 +43,11 @@ $(document).ready(function () {
     var timeArray = [year +'-'+month+'-'+dayArray[0], year +'-'+month+'-'+dayArray[1],year +'-'+month+'-'+dayArray[2], year +'-'+month+'-'+dayArray[3], year +'-'+month+'-'+dayArray[4], year +'-'+month+'-'+dayArray[5], year +'-'+month+'-'+dayArray[6]];
     console.log(timeArray);
     data.labels = timeArray;
-    var sumArray = [' ', ' ', ' ', ' ', ' ', ' ', ' '];
-    for(var i = 0;i < 7;i++)
-    {
-        WeiboManager.getSearchCount(timeArray[i],timeArray[i],function (result) {
-          sumArray[i] = result.data;
-          data.datasets[0].data = sumArray;
-            console.log( data.datasets[0].data);
-            console.log( data.labels);
+        WeiboManager.getSevenCount(timeArray,function (datas) {
+            data.datasets[0].data = datas;
+            console.log( datas);
             myLineChart = new Chart(ctx).Line(data, options);
         });
-
-    }
-
 });
 
 $(function() {
