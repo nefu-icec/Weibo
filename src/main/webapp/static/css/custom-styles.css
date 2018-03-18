@@ -20,7 +20,7 @@ body {
 }
 #page-inner {
     width:100%;
-    margin:10px 20px 10px 0px;
+    margin:-50px 20px 10px 0px;
     background-color:transparent;
     padding: 15px 30px;
     min-height:1200px;
@@ -37,7 +37,7 @@ padding:0;
 
 h1, .h1, h2, .h2, h3, .h3 {
 margin-top: 7px;
-margin-bottom: -5px;
+margin-bottom: -10px;
 }
 h2 {
     color: #000;
