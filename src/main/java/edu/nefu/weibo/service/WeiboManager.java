@@ -30,4 +30,12 @@ public interface WeiboManager {
      */
     Result search(String start, String end, int page, int pageSize, HttpSession session);
 
+    /**
+     * Search seven day count
+     *
+     * @param day
+     * @return
+     */
+    Object[] getSevenCount(String[] day,HttpSession session);
+
 }

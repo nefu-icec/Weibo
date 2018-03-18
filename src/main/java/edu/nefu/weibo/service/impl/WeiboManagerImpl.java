@@ -53,4 +53,16 @@ public class WeiboManagerImpl extends ManagerTemplate implements WeiboManager {
         return Result.withData(weiboBeans);
     }
 
+    @RemoteMethod
+    public Object[] getSevenCount(String[] day,HttpSession session) {
+
+        Object arr[] = new Object[7];
+        Result re = new Result();
+        for(int i=0; i<7; i++) {
+            re = getSearchCount(day[i],day[i],session);
+            arr[i] = re.getData();
+        }
+
+        return arr;
+    }
 }

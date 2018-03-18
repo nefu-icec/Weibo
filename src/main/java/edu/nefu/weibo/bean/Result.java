@@ -33,6 +33,8 @@ public class Result {
         this.message = message;
     }
 
+    public Result() {}
+
     public Result(boolean session, Object data, String message) {
         this.session = session;
         this.data = data;
