@@ -5,7 +5,7 @@ $(document).ready(function () {
     checkAdminSession(function () {
 
     });
-
+    searchWeibo("2010-10-11", "2010-10-12", 1);
     $("#search").click(function () {
         $("#weibos").mengularClear();
         var start = $("#start").val();

@@ -7,17 +7,13 @@
 	<meta content="" name="description" />
     <meta content="webthemez" name="author" />
     <title>微博后台管理系统</title>
-    <!-- Bootstrap Styles-->
     <link href="static/css/bootstrap.css" rel="stylesheet" />
-    <!-- FontAwesome Styles-->
     <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
-    <!-- Morris Chart Styles-->
     <link href="static/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- Custom Styles-->
     <link href="static/css/custom-styles.css" rel="stylesheet" />
-    <!-- Google Fonts-->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" href="static/js/Lightweight-Chart/cssCharts.css">
+
     <script src="static/js/jquery.min.js"></script>
     <script type='text/javascript' src='dwr/engine.js'></script>
     <script type='text/javascript' src='dwr/interface/WeiboManager.js'></script>
@@ -38,7 +34,6 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="main.html"><strong><i class="icon fa fa-plane"></i> 微博后台管理系统</strong></a>
-				
 		<div id="sideNav" href="">
 		<i class="fa fa-bars icon"></i> 
 		</div>
@@ -264,15 +259,8 @@
                     <li>
                         <a href="table.html"><i class="fa fa-table"></i> 微博详情</a>
                     </li>
-
-
-
-
-
                 </ul>
-
             </div>
-
         </nav>
         <!-- /. NAV SIDE  -->
 		<div id="page-wrapper">
@@ -370,7 +358,7 @@
                             <div class="panel panel-default chartJs">
                                 <div class="panel-heading">
                                     <div class="card-title">
-                                        <div class="title">Line Chart</div>
+                                        <div class="title">最近七日微博数</div>
                                     </div>
                                 </div>
                                 <div class="panel-body">
@@ -437,7 +425,7 @@
 				<div class="col-md-5">
 						<div class="panel panel-default">
 						<div class="panel-heading">
-							Line Chart
+							最近七日微博数
 						</div>
 						<div class="panel-body">
 							<div id="morris-line-chart"></div>
